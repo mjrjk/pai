@@ -45,6 +45,7 @@ namespace WebApplication2.Controllers
         // GET: Songs/Create
         public ActionResult Create()
         {
+            ViewBag.Genres = db.Genres.ToList();
             return View();
         }
 
@@ -61,6 +62,7 @@ namespace WebApplication2.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.Genres = db.Genres.ToList();
 
             return View(song);
         }
